@@ -10,7 +10,7 @@ try{
 
 	con.reset(d->connect (hostname, username, password));    // connect to mysql, passing per value
 	con->setClientOption("OPT_RECONNECT", &rec); //true      
-	con->setSchema(database_name);
+	con->setSchema(db);
 
 }catch(Exception e){
 	//cout << "exception "<< e << '\n';
