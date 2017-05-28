@@ -24,3 +24,9 @@ sql::Connection *con;
 sql::Statement *stmt;
 sql::ResultSet  *res;
 
+
+//note:shared pointer has his own limited garbage collector, which normal pointers doesn't have. So at the end we have to delete explicitly them
+delete res;
+delete stmt;
+delete con;
+
