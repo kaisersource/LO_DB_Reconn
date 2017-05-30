@@ -95,6 +95,7 @@ void OConnection::construct(const rtl::OUString& url, const Sequence< PropertyVa
     rtl::OUString token;
     rtl::OUString aHostName("localhost");
     sal_Int32 nPort = 3306;
+    sal_Int32 timeout = 10;
     rtl::OUString aDbName;
 
     m_settings.encoding = MysqlCDriver::getDefaultEncoding();
@@ -166,6 +167,8 @@ void OConnection::construct(const rtl::OUString& url, const Sequence< PropertyVa
             connProps["password"] = sql::ConnectPropertyVal(pass_str);
             connProps["schema"] = sql::ConnectPropertyVal(schema_str);
             connProps["port"] = sql::ConnectPropertyVal((int)(nPort));		
+            connProps["MYSQL_OPT_RECONNECT"] = sql::ConnectPropertyVal(static_cast< my_bool >(true));
+			connProps ["timeout"] = 10;
    			if (unixSocketPassed) {
                 sql::SQLString socket_str = rtl::OUStringToOString(sUnixSocket, m_settings.encoding).getStr();
                 connProps["socket"] = socket_str;
@@ -190,9 +193,7 @@ void OConnection::construct(const rtl::OUString& url, const Sequence< PropertyVa
     rec=true;
 	mysqlRecon(const sql::SQLException &e){
 	if(e==returnException()){	
-		connProps ["OPT_CONNECT_TIMEOUT"] = 10;
-		connProps->setClientOption("OPT_RECONNECT", &rec); //true si
-		m_settings.cppConnection.reset(cppDriver->connect(connProps));
+        m_settings.cppConnection.reset(cppDriver->connect(connProps));
 	 }
 	}
     
@@ -208,10 +209,7 @@ void OConnection::construct(const rtl::OUString& url, const Sequence< PropertyVa
             Any());
     }
     std::unique_ptr<sql::Statement> stmt(m_settings.cppConnection->createStatement());
-    stmt->executeUpdate("SET session sql_mode='ANSI_QUOTES'");
-    stmt->executeUpdate("SET NAMES utf8");
 }
-
 rtl::OUString OConnection::getImplementationName()
 {
     return rtl::OUString("com.sun.star.sdbc.drivers.mysqlc.OConnection");
