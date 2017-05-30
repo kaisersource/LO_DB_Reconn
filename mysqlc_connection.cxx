@@ -167,7 +167,7 @@ void OConnection::construct(const rtl::OUString& url, const Sequence< PropertyVa
             connProps["password"] = sql::ConnectPropertyVal(pass_str);
             connProps["schema"] = sql::ConnectPropertyVal(schema_str);
             connProps["port"] = sql::ConnectPropertyVal((int)(nPort));		
-            connProps["MYSQL_OPT_RECONNECT"] = sql::ConnectPropertyVal(static_cast< my_bool >(true));
+            connProps["MYSQL_OPT_RECONNECT"] = sql::ConnectPropertyVal(static_cast <rec>(true));
 			connProps ["timeout"] = 10;
    			if (unixSocketPassed) {
                 sql::SQLString socket_str = rtl::OUStringToOString(sUnixSocket, m_settings.encoding).getStr();
