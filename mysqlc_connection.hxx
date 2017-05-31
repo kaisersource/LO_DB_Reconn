@@ -57,7 +57,6 @@ namespace connectivity
 
     namespace mysqlc
     {
-		bool rec;
         using ::com::sun::star::sdbc::SQLWarning;
         using ::com::sun::star::sdbc::SQLException;
         using ::com::sun::star::uno::RuntimeException;
@@ -74,7 +73,7 @@ namespace connectivity
             rtl::OUString schema;
             rtl::OUString quoteIdentifier;
             rtl::OUString connectionURL;
-           bool readOnly;
+            bool readOnly;
         };
 
         class MysqlCDriver;
@@ -195,10 +194,7 @@ namespace connectivity
         // TODO: Not used.
         //inline rtl::OUString getPattern(rtl::OUString p) { return (p.getLength()) ? p : ASC2OU("%"); }
     } /* mysqlc */
-}
-        virtual sql::SQLException returnException() SAL_OVERRIDE;
-		virtual void mysqlRecon (sql::SQLException &) SAL_OVERRIDE;
-/* connectivity */
+} /* connectivity */
 #endif // INCLUDED_MYSQLC_SOURCE_MYSQLC_CONNECTION_HXX
 
 /*
