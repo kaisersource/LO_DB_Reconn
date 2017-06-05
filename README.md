@@ -1,6 +1,6 @@
 
-###Enhancement - Mysql native connector extension
-#Add automatic reconnect to server capability in connector code after idle timeout
+<h2>Enhancement - Mysql native connector extension</h2>
+<h2>Add automatic reconnect to server capability in connector code after idle timeout</h2>
 
 BASIC IDEA & MY SOLUTION
 
