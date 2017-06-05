@@ -1,15 +1,16 @@
 #include "con_header.hpp"
 	int main(){
-    //si
+    //conn param
     con = d->connect(connection_properties);
 hostname="kaisersource";
 username"postgres";
-password="Jobaka31";
+password="ax331eh";
 
 try{    
-	conProp ["OPT_CONNECT_TIMEOUT"] = 10;
-	con.reset(d->connect (hostname, username, password));    // connect to mysql, passing per value si
-	con->setClientOption("OPT_RECONNECT", &rec); //true si     
+	
+	conProp ["OPT_CONNECT_TIMEOUT"] = 40;
+	con.reset(d->connect (hostname, username, password));
+	con->setClientOption("OPT_RECONNECT", &rec);     
 	con->setSchema(db);
 
 }catch(Exception e){
