@@ -7,6 +7,6 @@
 
 <h3>- After the connection, if is not extablished,then an exception is thrown.</h3>
 <h3>- Detect that exception.</h3>
-<h3>- Create a function that implements a timeouf ot reconnection.</h3>
+<h3>- Create a function that implements a timeout of reconnection.</h3>
 <h3>- The trigger of this function is the exception itself. </h3>
 
