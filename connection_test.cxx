@@ -4,7 +4,7 @@
     con = d->connect(connection_properties);
 hostname="kaisersource";
 username"postgres";
-password="ax331eh";
+password="postgres";
 
 try{    
 	
@@ -16,7 +16,11 @@ try{
 }catch(Exception e){
 	//cout << "exception "<< e << '\n';
 }
-delete *res;
+/**
+*Deleting pointers
+**/
+
+delete *res; 
 delete *stmt;
 delete *con;
 }
